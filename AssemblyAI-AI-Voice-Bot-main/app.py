@@ -1,36 +1,10 @@
-'''
-+-------------------+        +-----------------------+        +------------------+        +------------------------+
-|   Step 1: Install |        |  Step 2: Real-Time    |        |  Step 3: Pass    |        |  Step 4: Live Audio    |
-|   Python Libraries|        |  Transcription with   |        |  Real-Time       |        |  Stream from ElevenLabs|
-+-------------------+        |       AssemblyAI      |        |  Transcript to   |        |                        |
-|                   |        +-----------------------+        |      OpenAI      |        +------------------------+
-| - assemblyai      |                    |                    +------------------+                    |
-| - openai          |                    |                             |                              |
-| - elevenlabs      |                    v                             v                              v
-| - mpv             |        +-----------------------+        +------------------+        +------------------------+
-| - portaudio       |        |                       |        |                  |        |                        |
-+-------------------+        |  AssemblyAI performs  |-------->  OpenAI generates|-------->  ElevenLabs streams   |
-                             |  real-time speech-to- |        |  response based  |        |  response as live      |
-                             |  text transcription   |        |  on transcription|        |  audio to the user     |
-                             |                       |        |                  |        |                        |
-                             +-----------------------+        +------------------+        +------------------------+
 
-###### Step 1: Install Python libraries ######
 
-brew install portaudio
-pip install "assemblyai[extras]"
-pip install elevenlabs==0.3.0b0
-brew install mpv
-pip install --upgrade openai
-'''
 
 import assemblyai as aai
 from openai import OpenAI
 from elevenlabs import play, Voice, VoiceSettings, generate
 import pyttsx3
-
-
-
 
 class AI_Assistant:
     def __init__(self):
@@ -45,7 +19,7 @@ class AI_Assistant:
             {"role":"system", "content":"You are a receptionist at a dental clinic. Be resourceful and efficient."},
         ]
 
-###### Step 2: Real-Time Transcription with AssemblyAI ######
+#Step 2: Real-Time Transcription with AssemblyAI 
         
     def start_transcription(self):
         self.transcriber = aai.RealtimeTranscriber(
@@ -90,7 +64,7 @@ class AI_Assistant:
         #print("Closing Session")
         return
 
-###### Step 3: Pass real-time transcript to OpenAI ######
+#Step 3: Pass real-time transcript to OpenAI #
     
     def generate_ai_response(self, transcript):
 
@@ -112,7 +86,7 @@ class AI_Assistant:
         print(f"\nReal-time transcription: ", end="\r\n")
 
 
-###### Step 4: Generate audio with ElevenLabs ######
+#Step 4: Generate audio with ElevenLabs #
         
     def generate_audio(self, text):
         
