@@ -1,4 +1,4 @@
-# 🦷 AI Voice Receptionist for Dental Clinic
+# 🦷 AI Voice Assitant
 
 An intelligent voice-enabled receptionist built using Python, AssemblyAI, OpenAI GPT, and ElevenLabs TTS. This assistant answers incoming speech in real-time, understands patient queries, and responds like a friendly dental clinic receptionist.
 
@@ -23,3 +23,4 @@ AssemblyAI-AI-Voice-Bot-main/
 ├── README.md              # Project description
 ├── list_voices.py         # Lists ElevenLabs available voices
 └── venv/                  # Python virtual environment (not tracked)
+```
